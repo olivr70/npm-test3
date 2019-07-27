@@ -1,0 +1,30 @@
+{
+  "name": "@olivr70/test3",
+  "version": "0.0.1",
+  "description": "Some TS module 3",
+  "author": "Olivier CHEVET",
+  "repository": "github:olivr70/npm-test3",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "prebuild": "rm -rf dist",
+    "build": "tsc",
+    "pretest": "npm run build",
+    "test": "jest",
+    "test:only": "jest",
+    "prepack": "npm test",
+    "postpack": "./hooks/postpack.sh",
+    "prepublishOnly": "echo 'PREPUBLISHONLY'",
+    "publish": "./hooks/publish.sh"
+  },
+  "jest": {
+    "testMatch": [
+      "<rootDir>/dist/__tests__/*.js"
+    ]
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.15",
+    "@types/node": "^12.6.8",
+    "typescript": "^3.5.3"
+  }
+}
